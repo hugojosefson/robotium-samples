@@ -8,5 +8,5 @@
     <uses-library android:name="android.test.runner" />
     </application>
     <uses-sdk android:minSdkVersion="7" />
-    <instrumentation android:name="android.test.InstrumentationTestRunner" android:targetPackage="com.newsrob"/>
+    <instrumentation android:name="android.test.InstrumentationTestRunner" android:targetPackage="com.metago.astro"/>
 </manifest> 
