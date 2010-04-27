@@ -11,7 +11,22 @@
     <packaging>apk</packaging>
     <name>SR Player - Instrumentation Test</name>
 
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-jayway-with-staging</id>
+            <url>http://oss.sonatype.org/content/groups/jayway-with-staging/</url>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
+
+        <dependency>
+            <groupId>com.jayway.android.robotium</groupId>
+            <artifactId>robotium-solo</artifactId>
+            <version>1.4.1-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
