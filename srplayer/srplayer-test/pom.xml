@@ -7,9 +7,9 @@
         <version>0.8.1-SNAPSHOT</version>
     </parent>
     <groupId>com.googlecode.srplayer</groupId>
-    <artifactId>srplayer-instrumentationtest</artifactId>
+    <artifactId>srplayer-test</artifactId>
     <packaging>apk</packaging>
-    <name>SR Player - Instrumentation Test</name>
+    <name>SR Player - Test</name>
 
     <repositories>
         <repository>
