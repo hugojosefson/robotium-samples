@@ -1,0 +1,86 @@
+Obtain the apk. Either:
+    
+    * Download apk directly from vendor's homepage, or...
+    
+    * via Market on your phone:
+        install the apk from market
+        find it:
+            start a command shell
+            become root if you need to: su
+            find / -iname '*partofname*.apk'
+            (on my phone, some were found in /system/sd/app/ and /system/sd/app-private/)
+        cp /file_location/the_filename.apk /sdcard/
+        copy it to your computer, by mounting the sdcard or using File Browser in DDMS in Eclipse.
+
+
+Figure out the application's package id, and the LAUNCHER Activity's class:
+/opt/android/platforms/android-7/tools/aapt dump xmltree original.apk AndroidManifest.xml|less
+
+    Browse to the top and find 'A: package=' just below 'E: manifest'.
+    That's the application's package id.
+
+    Search for LAUNCHER: hit '/' and type LAUNCHER. Then press ENTER. You may need to press 'N' (SHIFT-n) to search backwards.
+    Scroll up with your arrow keys, to the first line before it, which starts with 'E: activity'.
+    Then follow it down to 'A: android:name'.
+    That's your LAUNCHER Activity's class name. (If it starts with a '.', add the package id at the beginning.)
+
+    Exit from less with 'q'.
+
+./sign-debug-any-apk.sh original.apk debugsigned.apk
+adb install debugsigned.apk
+(if unsuccessful, you may need to 'adb uninstall com.whatever.the.package.id.is' before installing.)
+
+
+In your test project's AndroidManifest.xml in Eclipse, set the target package to the package id you found above.
+
+Write your test class like this:
+(the example here is for NewsRob)
+
+
+package com.yourcompany.yourtestname;
+
+import com.jayway.android.robotium.solo.Solo;
+
+import android.test.ActivityInstrumentationTestCase2;
+
+@SuppressWarnings("unchecked")
+public class ReallyBlackboxTest extends ActivityInstrumentationTestCase2 {
+
+	private static final String TARGET_PACKAGE_ID = "com.newsrob";
+	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.newsrob.DashboardListActivity";
+
+	private static Class<?> launcherActivityClass;
+	static{
+		try {
+			launcherActivityClass = Class.forName(LAUNCHER_ACTIVITY_FULL_CLASSNAME);
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ReallyBlackboxTest() throws ClassNotFoundException {
+		super(TARGET_PACKAGE_ID, launcherActivityClass);
+	}
+	
+	private Solo solo;
+	
+	@Override
+	protected void setUp() throws Exception {
+		solo = new Solo(getInstrumentation(), getActivity());
+	}
+	
+	public void testActivityAppears(){
+		solo.assertCurrentActivity("Correct activity did not appear.", launcherActivityClass);
+	}
+	
+	public void testCanOpenSettings(){
+		solo.pressMenuItem(0);
+	}
+
+	public void testCanOpenSettingsSynchronization(){
+		testCanOpenSettings();
+		solo.clickOnText("Synchronization");
+	}
+
+}
