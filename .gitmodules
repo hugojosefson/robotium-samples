@@ -1,0 +1,3 @@
+[submodule "srplayer/srplayer-app"]
+	path = srplayer/srplayer-app
+	url = git@github.com:hugojosefson/robotium-samples-srplayer-app.git
