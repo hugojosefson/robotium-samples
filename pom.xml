@@ -37,6 +37,6 @@
     
     <modules>
 		<module>srplayer/SRPlayer</module>
-		<module>srplayer-SRPlayerTest</module>
+		<module>srplayer/test</module>
 	</modules>
 </project>
