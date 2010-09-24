@@ -1,3 +1,6 @@
 [submodule "srplayer/srplayer-app"]
 	path = srplayer/srplayer-app
 	url = git@github.com:hugojosefson/robotium-samples-srplayer-app.git
+[submodule "secrets-for-android/secrets-for-android-app"]
+	path = secrets-for-android/secrets-for-android-app
+	url = git@github.com:hugojosefson/robotium-samples-secrets-for-android.git
