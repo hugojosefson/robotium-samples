@@ -14,7 +14,7 @@
 
     <modules>
 		<module>secrets-for-android-app</module>
-		<!--<module>secrets-for-android-test</module>-->
+		<module>secrets-for-android-test</module>
 	</modules>
 
     <dependencyManagement>
