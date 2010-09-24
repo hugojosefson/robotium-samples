@@ -6,10 +6,10 @@ import junit.framework.Assert;
 
 public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCase2 {
 
-	private static Class SecretsForAndroidClass;
+	private static Class loginActivityClass;
 	static{
 		try {
-			SecretsForAndroidClass = Class.forName("net.tawacentral.roger.secrets.LoginActivity");
+			loginActivityClass = Class.forName("net.tawacentral.roger.secrets.LoginActivity");
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
@@ -19,19 +19,16 @@ public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCa
 
 	@SuppressWarnings("unchecked")
 	public SecretsForAndroidRobotiumTest() throws ClassNotFoundException {
-		super("net.tawacentral.roger.secrets", SecretsForAndroidClass);
+		super("net.tawacentral.roger.secrets", loginActivityClass);
 	}
 	
 	@Override
 	protected void setUp() throws Exception {
 		solo = new Solo(getInstrumentation(), getActivity());
 	}
-	
-	public void testActivityAppears(){
-		solo.assertCurrentActivity("Correct activity did not appear.", SecretsForAndroidClass);
-	}
-	
-	public void testSomethingElse(){
+
+	public void testLoginActivityAppears(){
+		//TODO
 	}
 
 }
