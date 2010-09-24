@@ -4,22 +4,12 @@ import android.test.ActivityInstrumentationTestCase2;
 import com.jayway.android.robotium.solo.Solo;
 import junit.framework.Assert;
 
-public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCase2 {
-
-	private static Class loginActivityClass;
-	static{
-		try {
-			loginActivityClass = Class.forName("net.tawacentral.roger.secrets.LoginActivity");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException(e);
-		}
-	}
+public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCase2<LoginActivity> {
 
 	private Solo solo;
 
-	@SuppressWarnings("unchecked")
 	public SecretsForAndroidRobotiumTest() throws ClassNotFoundException {
-		super("net.tawacentral.roger.secrets", loginActivityClass);
+		super("net.tawacentral.roger.secrets", LoginActivity.class);
 	}
 	
 	@Override
