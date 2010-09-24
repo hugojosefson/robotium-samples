@@ -16,7 +16,6 @@
         <dependency>
             <groupId>com.jayway.android.robotium</groupId>
             <artifactId>robotium-solo</artifactId>
-            <version>1.7.2-SNAPSHOT</version>
         </dependency>
 
         <dependency>
