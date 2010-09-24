@@ -18,7 +18,7 @@ public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCa
 	}
 
 	public void testLoginActivityAppears(){
-		//TODO
+		solo.assertCurrentActivity("Login activity did not appear.", loginActivityClass);
 	}
 
 }
