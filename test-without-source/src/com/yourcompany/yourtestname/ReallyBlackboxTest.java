@@ -5,7 +5,6 @@ import junit.framework.Assert;
 import com.jayway.android.robotium.solo.Solo;
 
 import android.test.ActivityInstrumentationTestCase2;
-import android.view.KeyEvent;
 
 @SuppressWarnings("unchecked")
 public class ReallyBlackboxTest extends ActivityInstrumentationTestCase2 {
@@ -32,6 +31,9 @@ public class ReallyBlackboxTest extends ActivityInstrumentationTestCase2 {
 	@Override
 	protected void setUp() throws Exception {
 		solo = new Solo(getInstrumentation(), getActivity());
+		if (solo.searchText("License Agreement", 1, false)){
+			solo.clickOnButton("Accept");
+		}
 	}
 	
 	public void testActivityAppears(){
@@ -43,17 +45,20 @@ public class ReallyBlackboxTest extends ActivityInstrumentationTestCase2 {
 		Assert.assertTrue(solo.searchText("/sdcard"));
 		Assert.assertFalse(solo.searchText("/sdcard/"));
 	}
-	
-	public void testOpenNewsRobDirectory(){
+
+	/**
+	 * Remove "IGNORE_" from method name to enable this test.
+	 * Not everyone has AnkiDroid installed :)
+	 */
+	public void IGNORE_testOpenNewsRobDirectory(){
 		testGoHome();
-		solo.clickOnText("newsrob");
-		Assert.assertTrue(solo.searchText("/sdcard/newsrob"));
-		Assert.assertTrue(solo.searchText("feed_preferences"));
+		solo.clickOnText("AnkiDroid");
+		Assert.assertTrue(solo.searchText("/sdcard/AnkiDroid"));
+		Assert.assertTrue(solo.searchText("country-capitals"));
 	}
 	
 	public void testListFileExtensions(){
-		solo.pressMenuItem(5);
-		getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_ENTER);
+		solo.clickOnMenuItem("Preferences", true);
 		solo.clickOnText("Edit File Extensions");
 		Assert.assertTrue(solo.searchText("7z"));
 	}
