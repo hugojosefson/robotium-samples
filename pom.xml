@@ -10,7 +10,7 @@
     <modules>
 		<module>srplayer</module>
 		<!--<module>secrets-for-android</module>-->
-		<!--<module>TestWithoutSource</module>-->
+		<!--<module>test-without-source</module>-->
 	</modules>
 
     <properties>
