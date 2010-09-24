@@ -8,4 +8,5 @@ http://www.robotium.org/
 
 The apps:
 http://code.google.com/p/sr-player/
+http://code.google.com/p/secrets-for-android/
 
