@@ -1,27 +1,17 @@
 package sr.player.test;
 
-import junit.framework.Assert;
-
-import com.jayway.android.robotium.solo.Solo;
-
 import android.test.ActivityInstrumentationTestCase2;
+import com.jayway.android.robotium.solo.Solo;
+import junit.framework.Assert;
+import sr.player.SRPlayer;
 
-public class SRPlayerRobotiumTest extends ActivityInstrumentationTestCase2 {
+public class SRPlayerRobotiumTest extends ActivityInstrumentationTestCase2<SRPlayer> {
 
-	private static Class srPlayerClass;
-	static{
-		try {
-			srPlayerClass = Class.forName("sr.player.SRPlayer");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
 	private Solo solo;
 	
 	@SuppressWarnings("unchecked")
 	public SRPlayerRobotiumTest() throws ClassNotFoundException {
-		super("sr.player", srPlayerClass);
+		super("sr.player", SRPlayer.class);
 	}
 	
 	@Override
@@ -30,7 +20,7 @@ public class SRPlayerRobotiumTest extends ActivityInstrumentationTestCase2 {
 	}
 	
 	public void testActivityAppears(){
-		solo.assertCurrentActivity("Correct activity did not appear.", srPlayerClass);
+		solo.assertCurrentActivity("Correct activity did not appear.", SRPlayer.class);
 	}
 	
 	public void testFavouritesAppear(){
