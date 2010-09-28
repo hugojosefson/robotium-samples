@@ -57,6 +57,11 @@ public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCa
 
         Assert.assertTrue(solo.waitForText("Created moments ago"));
         Assert.assertTrue(solo.waitForText("mailinator.com"));
+
+        // Retrieve password
+        solo.clickOnText("mailinator.com");
+        Assert.assertTrue(solo.waitForText("not needed"));
+
     }
 
 }
