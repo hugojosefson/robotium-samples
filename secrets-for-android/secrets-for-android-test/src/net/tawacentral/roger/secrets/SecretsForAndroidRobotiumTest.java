@@ -62,6 +62,12 @@ public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCa
         solo.clickOnText("mailinator.com");
         Assert.assertTrue(solo.waitForText("not needed"));
 
+        // Delete secret
+        solo.clickLongOnText("mailinator.com");
+        solo.clickOnMenuItem("Delete");
+        solo.clickOnButton("Yes");
+        solo.sleep(800);
+        solo.waitForText("mailinator.com", 1, 50);
     }
 
 }
