@@ -40,4 +40,23 @@ public class SecretsForAndroidRobotiumTest extends ActivityInstrumentationTestCa
 		}
 	}
 
+	public void testCreateSecret(){
+		loginOrCreateMasterPassword();
+
+		solo.clickOnText("Add");
+        Assert.assertTrue(solo.waitForText("Web site/Description"));
+        solo.enterText(0, "mailinator.com");
+        solo.enterText(1, "thisusername");
+        solo.enterText(2, "not needed");
+        solo.goBack();
+        solo.enterText(3, "thisusername@mailinator.com");
+        solo.goBack();
+        solo.enterText(4, "This account can be used by anyone.");
+        solo.goBack();
+        solo.goBack();
+
+        Assert.assertTrue(solo.waitForText("Created moments ago"));
+        Assert.assertTrue(solo.waitForText("mailinator.com"));
+    }
+
 }
