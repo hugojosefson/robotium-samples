@@ -1,12 +1,16 @@
 This git repo contains some Android open source apps, plus some tests written using Robotium.
 
-Build and run the tests with Maven, using maven-android-plugin:
-http://code.google.com/p/maven-android-plugin
+To download these samples, including the apps required:
+1. Register a free account at http://github.com
+2. git checkout --recursive git@github.com:jayway/robotium-samples.git
+
+Build and run the tests with Maven:
+   mvn install
 
 Robotium:
-http://www.robotium.org/
+   http://www.robotium.org/
 
 The apps:
-http://code.google.com/p/sr-player/
-http://code.google.com/p/secrets-for-android/
+   http://code.google.com/p/sr-player/
+   http://code.google.com/p/secrets-for-android/
 
