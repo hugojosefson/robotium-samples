@@ -69,14 +69,12 @@ public class ReallyBlackboxTest extends ActivityInstrumentationTestCase2 {
 		solo.clickOnText("3gp");
 		solo.clearEditText(2);
 		solo.enterText(2, "3ghugo");
-		solo.goBack();
 		solo.clickOnButton("Save");
 		Assert.assertTrue(solo.searchText("video/3ghugo"));
 		
 		solo.clickOnText("3gp");
 		solo.clearEditText(2);
 		solo.enterText(2, "3gp");
-		solo.goBack();
 		solo.clickOnButton("Save");
 		Assert.assertTrue(solo.searchText("video/3gp"));
 	}
