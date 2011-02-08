@@ -1,10 +1,10 @@
 This git repo contains some Android open source apps, plus some tests written using Robotium.
 
 To download these samples, including the apps required:
-   git checkout --recursive git://github.com/jayway/robotium-samples.git
+   git clone --recursive git://github.com/jayway/robotium-samples.git
 
 ...or, if you don't already have git 1.7 or later:
-   git checkout git://github.com/jayway/robotium-samples.git
+   git clone git://github.com/jayway/robotium-samples.git
    cd robotium-samples
    git submodule init
    git submodule update
